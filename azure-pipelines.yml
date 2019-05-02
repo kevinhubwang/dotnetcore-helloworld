@@ -18,6 +18,3 @@ steps:
   
 - script: dotnet test --configuration $(buildConfiguration)
   displayName: 'dotnet test $(buildConfiguration)'
-  
-- script: dotnet publish --output $(Build.ArtifactStagingDirectory)
-  displayName: 'dotnet publish --output $(Build.ArtifactStagingDirectory)'
