@@ -19,6 +19,9 @@ steps:
 - script: dotnet test --configuration $(buildConfiguration)
   displayName: 'dotnet test $(buildConfiguration)'
   
+- script: dotnet run --configuration $(buildConfiguration)
+  displayName: 'dotnet run $(buildConfiguration)'
+  
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish $(buildConfiguration)'
   inputs:
