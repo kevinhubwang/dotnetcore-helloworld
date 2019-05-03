@@ -23,7 +23,7 @@ steps:
   displayName: 'dotnet publish $(buildConfiguration)'
   inputs:
     command: publish
-    publishProjects: True
+    publishProjects: False
     arguments: "--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)"
     zipAfterPublish: True
 
