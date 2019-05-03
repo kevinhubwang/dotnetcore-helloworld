@@ -19,8 +19,14 @@ steps:
 - script: dotnet test --configuration $(buildConfiguration)
   displayName: 'dotnet test $(buildConfiguration)'
   
-- script: dotnet publish --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)
-  displayName: 'dotnet publish --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish $(buildConfiguration)'
+  inputs:
+    command: publish
+    publishProjects: True
+    arguments: "--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)"
+    zipAfterPublish: True
+
 
 - task: PublishBuildArtifacts@1
   displayName: "publish artifacts"
